@@ -1,4 +1,5 @@
 Flask==0.12.1
 psycopg2==2.7.1
-pytest==3.0.7
 SQLAlchemy==1.1.9
+codecov==2.0.9
+pytest==3.0.7

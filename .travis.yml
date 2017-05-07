@@ -4,4 +4,6 @@ python:
     - "3.6"
 cache: pip
 install: "pip install -r ./vagrant/app/requirements.txt"
-script: pytest vagrant/test/
+script:
+ - pytest vagrant/test/
+ - codecov
