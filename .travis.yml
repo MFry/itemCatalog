@@ -3,4 +3,4 @@ python:
     - "3.5"
     - "3.6"
 cache: pip
-install: "pip install -r requirements.txt"
+install: "pip install -r ./vagrant/app/requirements.txt"
