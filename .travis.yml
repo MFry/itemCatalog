@@ -5,5 +5,5 @@ python:
 cache: pip
 install: "pip install -r ./vagrant/app/requirements.txt"
 script:
- - pytest vagrant/test/ --junitxml=./out_report.xml
+ - pytest vagrant/test/ --cov=vagrant/test/ --junitxml=./out_report.xml
  - codecov
