@@ -1,4 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
+### Mac System Files
+.DS_Store
+
+### npm/yarn/node
+node_modules/
+
 ### VirtualEnv template
 # Virtualenv
 # http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
@@ -116,3 +122,4 @@ ENV/
 
 # Rope project settings
 .ropeproject
+!/vagrant/app/static/scripts/
