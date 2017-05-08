@@ -1,0 +1,15 @@
+{
+  "name": "ItemCatalog",
+  "version": "0.0.1",
+  "description": "Web application that provides a list of items within a variety of categories as well as provides a user registration and authentication system.",
+  "main": "app.js",
+  "repository": "https://github.com/MFry/itemCatalog",
+  "author": "Michal Frystacky",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0"
+  }
+}
