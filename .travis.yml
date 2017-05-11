@@ -3,9 +3,8 @@ python:
     - "3.5"
     - "3.6"
 cache:
- - pip
- - yarn
   directories:
+    - pip
     - node_modules
 before_install:
   - sudo apt-get update -qq
@@ -18,7 +17,7 @@ script:
  - jest
  - codecov
 
- branches:
+branches:
   only:
     - dev
     - master
