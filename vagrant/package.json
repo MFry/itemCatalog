@@ -7,6 +7,7 @@
   "author": "Michal Frystacky",
   "license": "MIT",
   "dependencies": {
+    "enzyme": "^2.8.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
@@ -20,11 +21,17 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "jest": "^20.0.0",
+    "jest-cli": "^20.0.0",
     "react-test-renderer": "^15.5.4",
     "webpack": "^2.5.1"
   },
   "scripts": {
     "run": "python app/app.py",
-    "test:react": "jest"
+    "test": "jest -w"
+  },
+  "jest": {
+    "roots": [
+      "app/static/scripts/app/"
+    ]
   }
 }
