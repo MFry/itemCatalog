@@ -9,14 +9,17 @@ cache:
   directories:
     - node_modules
     - $HOME/.yarn-cache
+    - $HOME/.nvm/nvm.sh
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get -qq install python-software-properties build-essential libssl-dev
   # Setting up latest node
-  - sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-  - sudo nvm install node
-  - sudo nvm use node
-  # Yarn Install: https://github.com/travis-ci/travis-ci/issues/6720#issuecomment-254988120
+  # Ref: http://entulho.fiatjaf.alhur.es/guias/how-to-use-node-along-with-other-language-on-travis-ci/
+  - . $HOME/.nvm/nvm.sh
+  - nvm install stable
+  - nvm use stable
+  # Yarn Install
+  # Ref: https://github.com/travis-ci/travis-ci/issues/6720#issuecomment-254988120
   # Repo for Yarn
   - sudo apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
   - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
