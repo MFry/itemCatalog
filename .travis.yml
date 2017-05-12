@@ -1,4 +1,5 @@
 language: python
+dist: trusty
 python:
     - "3.5"
     - "3.6"
@@ -7,15 +8,15 @@ cache:
   directories:
     - node_modules
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get -qq install python-software-properties
+  - apt-get update -qq
+  - apt-get -qq install python-software-properties
   - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-  - sudo apt-get -qq install nodejs
+  - apt-get -qq install nodejs
   - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  - sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  - sudo apt-get update -qq
-  - sudo apt-get -qq install yarn
-  - sudo yarn install
+  - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  - apt-get update -qq
+  - apt-get -qq install yarn
+  - yarn install
 install: "pip install -r ./vagrant/requirements.txt"
 script:
  - pytest vagrant/test/ --cov=vagrant/test/ --junitxml=./out_report.xml
