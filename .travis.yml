@@ -29,7 +29,6 @@ before_install:
   - mv vagrant/yarn.lock ./
   - mv vagrant/package.json ./
   - yarn install
-  - $PATH=$(npm bin):$PATH
 install: "pip install -r ./vagrant/requirements.txt"
 script:
  - pytest vagrant/test/ --cov=vagrant/test/ --junitxml=./out_report.xml
