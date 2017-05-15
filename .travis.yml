@@ -32,7 +32,7 @@ before_install:
 install: "pip install -r ./vagrant/requirements.txt"
 script:
  - pytest vagrant/test/ --cov=vagrant/test/ --junitxml=./out_report.xml
- - jest vagrant/app/static/scripts
+ - yarn run test:ci
  - codecov
 
 branches:
