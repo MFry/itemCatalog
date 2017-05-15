@@ -11,16 +11,18 @@ const Categories = () => {
 const Items = () => {
     return (
         <div className="col-md-8">
-            <h1>Latest Items</h1>
+            <h3>Latest Items</h3>
         </div>
     )
 };
 
 const Content = () => {
   return (
-      <div className="row">
-          <Categories/>
-          <Items/>
+      <div className="container-fluid" >
+          <div className="row">
+              <Categories/>
+              <Items/>
+          </div>
       </div>
   )
 };

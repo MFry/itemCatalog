@@ -6,7 +6,7 @@ import { shallow, mount, render } from 'enzyme';
 
 describe('Testing basic <Content /> functionality', () => {
    it('should render without throwing an error', ()=> {
-      expect(shallow(<Content />).prop('className')).toEqual("row");
+      expect(shallow(<Content />).prop('className')).toEqual("container-fluid");
    });
 });
 

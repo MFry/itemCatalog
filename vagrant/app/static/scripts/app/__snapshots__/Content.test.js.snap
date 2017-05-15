@@ -2,21 +2,25 @@
 
 exports[`Content left panel renders 1`] = `
 <div
-  className="row"
+  className="container-fluid"
 >
   <div
-    className="col-md-4"
+    className="row"
   >
-    <h1>
-      Categories
-    </h1>
-  </div>
-  <div
-    className="col-md-8"
-  >
-    <h1>
-      Latest Items
-    </h1>
+    <div
+      className="col-md-4"
+    >
+      <h1>
+        Categories
+      </h1>
+    </div>
+    <div
+      className="col-md-8"
+    >
+      <h3>
+        Latest Items
+      </h3>
+    </div>
   </div>
 </div>
 `;

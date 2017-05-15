@@ -1,24 +1,47 @@
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var extractPlugin = new ExtractTextPlugin({
+    filename: 'main.css'
+});
+
 
 module.exports = {
-    resolve: {
-        extensions: [".jsx", ".js"]
+    entry: './app/static/scripts/app/app.jsx',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'app/static/dist'),
+        publicPath: '/app/static/dist'
     },
     module: {
-        loaders: [
+        rules: [
             {
-                test: /\.(js|jsx)$/, loader: 'babel-loader',
-                exclude: /(node_modules)/,
-                query: {
-                    presets: ['es2015', 'react', 'stage-2']
+                test: /\.(js|jsx)$/,
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
                 }
+                ],
+                exclude: /(node_modules)/,
+            },
+            {
+                test: /\.scss$/,
+                use: extractPlugin.extract({
+                    use: ['css-loader','sass-loader']
+                })
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)$/,
+                loader: 'file-loader'
             }
         ]
     },
-    entry: './app/static/scripts/app/app.jsx',
-    output: {
-        filename: 'app.js',
-        path: path.resolve(__dirname, 'app/static/dist')
-    }
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
+    plugins: [
+        extractPlugin
+    ]
 };
