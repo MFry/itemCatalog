@@ -2,16 +2,28 @@ import React from 'react';
 
 const Categories = () => {
     return (
-        <div className="col-md-4">
-            <h1>Categories</h1>
+        <div className="col-md-4 snap-to">
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h3>Categories</h3>
+                </div>
+                <div className="panel-body">
+                </div>
+            </div>
         </div>
     )
 };
 
 const Items = () => {
     return (
-        <div className="col-md-8">
-            <h3>Latest Items</h3>
+        <div className="col-md-8 snap-to">
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h3>Latest Items</h3>
+                </div>
+                <div className="panel-body">
+                </div>
+            </div>
         </div>
     )
 };

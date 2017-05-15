@@ -1,2 +1,15 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+// Ref: http://stackoverflow.com/a/13051843/1771644
+body {padding-top: 40px; }
+@media screen and (max-width: 768px) {
+  body { padding-top: 0px; }
+}
+
+.snap-to {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
