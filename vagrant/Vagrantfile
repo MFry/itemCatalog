@@ -106,7 +106,7 @@ Vagrant.configure("2") do |config|
 
         pip3 install --upgrade pip
         pip3 install --upgrade virtualenv
-        virtualenv -p python3 /vagrant/itemCatalog
+        virtualenv -p python3.6 /vagrant/py36env
 
         vagrantTip="The shared directory is located at /vagrant\nTo access your shared files: cd /vagrant"
         echo -e $vagrantTip > /etc/motd
