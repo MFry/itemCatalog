@@ -23,7 +23,7 @@ class Category(DeclarativeBase):
     __tablename__ = "categories"
     id = Column(Integer, primary_key=True)
     category = Column(String)
-    items = relationship('items')
+    items = relationship('Items')
 
 
 class Items(DeclarativeBase):

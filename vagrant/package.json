@@ -36,7 +36,8 @@
   },
   "scripts": {
     "run": "python app/app.py",
-    "test:ci": "jest vagrant/app/static/scripts"
+    "test:py": "py.test vagrant/test/ -v -rxs",
+    "test:js": "jest vagrant/app/static/scripts"
   },
   "jest": {
     "roots": [
