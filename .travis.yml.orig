@@ -1,0 +1,31 @@
+language: python
+python:
+    - "3.5"
+    - "3.6"
+addons:
+    postgresql: "9.6"
+cache:
+  pip: true
+  directories:
+    - node_modules
+before_install:
+  - sudo apt-get update --qq
+  - sudo apt-get install python-software-properties
+  - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+  - sudo apt-get install nodejs
+  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  - sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  - psql -c 'create database items_test;' -U postgres
+  - sudo apt-get update --qq
+  - sudo apt-get install --qq yarn
+  - sudo yarn install
+install: "pip install -r ./vagrant/requirements.txt"
+script:
+ - pytest vagrant/test/ --cov=vagrant/test/ --junitxml=./out_report.xml
+ - jest
+ - codecov
+
+branches:
+  only:
+    - dev
+    - master
