@@ -4,6 +4,10 @@ sudo: required
 python:
     - "3.5"
     - "3.6"
+addons:
+    postgresql: "9.6"
+services:
+    - postgresql
 cache:
   pip: true
   directories:
@@ -25,7 +29,8 @@ before_install:
   - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   - sudo apt-get update -qq
   - sudo apt-get -qq install yarn
-  # Move files to 
+  # Move files to
+  - psql -c 'create database items_test;' -U postgres
   - mv vagrant/yarn.lock ./
   - mv vagrant/package.json ./
   - yarn install

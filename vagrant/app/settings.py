@@ -1,6 +1,6 @@
 database = {
     'drivername': 'postgresql',
-    'username': 'vagrant',
+    'username': 'postgres',
     'password': '',
     'host': 'localhost',
     'port': '5432',
