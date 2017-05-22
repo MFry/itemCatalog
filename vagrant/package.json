@@ -41,7 +41,7 @@
   },
   "jest": {
     "roots": [
-      "app/static/scripts/app/"
+      "app/static/scripts"
     ]
   }
 }
