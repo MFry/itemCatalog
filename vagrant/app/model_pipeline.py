@@ -25,7 +25,7 @@ class ItemCatalogPipeline:
             session.close()
 
     @staticmethod
-    def _finalize_session(session):
+    def finalize_session(session):
         try:
             session.commit()
         except:
@@ -33,6 +33,20 @@ class ItemCatalogPipeline:
             raise
         finally:
             session.close()
+
+    @staticmethod
+    def create_category(category):
+        return {
+            'category': category
+        }
+
+    @staticmethod
+    def create_item(title, category_id, description=None):
+        return {
+            'title': title,
+            'category_id': category_id,
+            'description': description
+        }
 
     def add_category(self, category):
         session = self.session()
