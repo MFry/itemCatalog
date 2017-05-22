@@ -6,10 +6,14 @@ from model_pipeline import ItemCatalogPipeline
 
 app = Flask(__name__)
 
-app.config.update(dict(
-    DEBUG=True,
-    PIPELINE=ItemCatalogPipeline()
-))
+
+def set_config(config):
+    app.config.update(config)
+    if app.config['DEV']:
+        app.config.update(dict(
+            DEBUG=True,
+            PIPELINE=ItemCatalogPipeline()
+        ))
 
 
 @app.route('/')
@@ -26,5 +30,6 @@ def get_all_items():
     return app_helper.create_json(query)
 
 if __name__ == '__main__':
+    set_config({'DEV': True})
     app.run(host='0.0.0.0', port=5000)
 

@@ -2,7 +2,7 @@ import app
 
 
 def test_app():
-    app.app.config['TESTING'] = True
+    app.set_config(dict(TESTING=True))
     test_app = app.app.test_client()
     response = test_app.get('/')
     print(response)
