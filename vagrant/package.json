@@ -37,11 +37,13 @@
   "scripts": {
     "run": "python app/app.py",
     "test:py": "py.test vagrant/test/ -v -rxs",
-    "test:js": "jest vagrant/app/static/scripts"
+    "test:js": "jest"
   },
   "jest": {
+    "verbose": true,
     "roots": [
-      "app/static/scripts"
+      "app/static/scripts",
+      "vagrant/app/static/scripts"
     ]
   }
 }
