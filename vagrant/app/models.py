@@ -25,10 +25,26 @@ class Category(DeclarativeBase):
     category = Column(String)
     items = relationship('Items', cascade="all, delete, delete-orphan")
 
+    @property
+    def serialize(self):
+        return {
+            'id': self.id,
+            'category': self.name
+        }
+
 
 class Items(DeclarativeBase):
     __tablename__ = "items"
     id = Column(Integer, primary_key=True)
     title = Column(String)
     description = Column(Text, nullable=True)
-    category = Column(Integer, ForeignKey('categories.id'))
+    category_id = Column(Integer, ForeignKey('categories.id'))
+
+    @property
+    def serialize(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'category': self.category_id
+        }
