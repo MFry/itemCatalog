@@ -1,5 +1,6 @@
 from sqlalchemy.orm import sessionmaker
 from models import Items, Category, db_connect, create_tables
+from contextlib import contextmanager
 
 
 class ItemCatalogPipeline:
@@ -10,7 +11,7 @@ class ItemCatalogPipeline:
         """
         engine = db_connect()
         create_tables(engine)
-        self.session = sessionmaker(bind=engine)
+        self._session = sessionmaker(bind=engine)
         self.engine = engine
 
     @staticmethod
@@ -24,9 +25,11 @@ class ItemCatalogPipeline:
         finally:
             session.close()
 
-    @staticmethod
-    def finalize_session(session):
+    @contextmanager
+    def get_session(self):
+        session = self._session()
         try:
+            yield session
             session.commit()
         except:
             session.rollback()
@@ -49,15 +52,15 @@ class ItemCatalogPipeline:
         }
 
     def add_category(self, category):
-        session = self.session()
-        category = Category(**category)
-        ItemCatalogPipeline._finalize_add_session(session, category)
-        return category
+        with self.get_session() as session:
+            category = Category(**category)
+            session.add(category)
+            return category
 
     def add_item(self, item):
-        session = self.session()
-        item = Items(**item)
-        ItemCatalogPipeline._finalize_add_session(session, item)
-        return item
+        with self.get_session() as session:
+            item = Items(**item)
+            session.add(item)
+            return item
 
 

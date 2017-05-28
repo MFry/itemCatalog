@@ -3,7 +3,6 @@ import app_helper
 import models
 from model_pipeline import ItemCatalogPipeline
 
-
 app = Flask(__name__)
 
 
@@ -23,11 +22,10 @@ def hello():
 
 @app.route('/j/items', methods=['GET'])
 def get_all_items():
-    session = app.config['PIPELINE'].session()
-    end_session = app.config['PIPELINE'].finalize_session
-    query = session.query(models.Items).all()
-    # end_session(session)
-    return app_helper.create_json(query)
+    with app.config['PIPELINE'].get_session() as session:
+        query = session.query(models.Items).all()
+        json_object = app_helper.create_json(query)
+        return json_object
 
 if __name__ == '__main__':
     set_config({'DEV': True})
