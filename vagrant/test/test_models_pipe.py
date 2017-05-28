@@ -1,16 +1,14 @@
 import pytest
-from test.testEnvironment import TestDBSetup
+from test.testEnvironment import DBSetup
 import models
-from model_pipeline import ItemCatalogPipeline
 
 
 @pytest.fixture(scope='module')
 def models_pipeline():
-    test_db = TestDBSetup()
-    engine, pipeline = test_db.set_fresh_database()
+    test_db = DBSetup()
+    pipeline = test_db.get_pipeline()
     yield pipeline
-    models.DeclarativeBase.metadata.bind = pipeline.enginete
-    models.DeclarativeBase.metadata.drop_all()
+    test_db.clear_database()
     del pipeline
 
 
