@@ -40,7 +40,7 @@ class ItemCatalogPipeline:
     @staticmethod
     def create_category(category):
         return {
-            'category': category
+            'name': category
         }
 
     @staticmethod

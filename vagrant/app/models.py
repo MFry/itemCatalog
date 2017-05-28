@@ -22,7 +22,7 @@ def create_tables(engine):
 class Category(DeclarativeBase):
     __tablename__ = "categories"
     id = Column(Integer, primary_key=True)
-    category = Column(String)
+    name = Column(String)
     items = relationship('Items', cascade="all, delete, delete-orphan")
 
     @property

@@ -25,7 +25,7 @@ def test_models_add_category(models_pipeline):
 
 def test_models_add_item(models_pipeline):
     with models_pipeline.get_session() as session:
-        outdoors_category = session.query(models.Category).filter_by(category='Outdoors').first()
+        outdoors_category = session.query(models.Category).filter_by(namet='Outdoors').first()
         create_item = models_pipeline.create_item
         models_pipeline.add_item(create_item('Snowboard', outdoors_category.id))
         total_items = session.query(models.Items).count()
