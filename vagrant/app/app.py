@@ -27,6 +27,15 @@ def get_all_items():
         json_object = app_helper.create_json(query)
         return json_object
 
+
+@app.route('/j/categories', methods=['GET'])
+def get_all_categories():
+    with app.config['PIPELINE'].get_session() as session:
+        query = session.query(models.Category).all()
+        json_object = app_helper.create_json(query)
+        return json_object
+
+
 if __name__ == '__main__':
     set_config({'DEV': True})
     app.run(host='0.0.0.0', port=5000)
