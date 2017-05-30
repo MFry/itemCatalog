@@ -36,7 +36,7 @@ class Category(DeclarativeBase):
 class Items(DeclarativeBase):
     __tablename__ = "items"
     id = Column(Integer, primary_key=True)
-    title = Column(String)
+    name = Column(String)
     description = Column(Text, nullable=True)
     category_id = Column(Integer, ForeignKey('categories.id'))
 
@@ -44,7 +44,7 @@ class Items(DeclarativeBase):
     def serialize(self):
         return {
             'id': self.id,
-            'title': self.title,
+            'name': self.name,
             'description': self.description,
             'category': self.category_id
         }

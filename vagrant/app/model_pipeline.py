@@ -44,9 +44,9 @@ class ItemCatalogPipeline:
         }
 
     @staticmethod
-    def create_item(title, category_id, description=None):
+    def create_item(name, category_id, description=None):
         return {
-            'title': title,
+            'name': name,
             'category_id': category_id,
             'description': description
         }
