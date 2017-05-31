@@ -4,9 +4,26 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 // Ref: http://stackoverflow.com/a/13051843/1771644
 body {padding-top: 40px; }
 @media screen and (max-width: 768px) {
-  body { padding-top: 0px; }
+  body { padding-top: 0; }
 }
 
+.item-list {
+  line-height: 2;
+  font-size: 16px;
+}
+
+.page-header {
+  height: 64px;
+  line-height: 64px;
+  background-color: #D84315;
+  color: #ECEFF1;
+  margin: 0;
+  padding-bottom: 0;
+}
+
+/**
+ Allows components to snap to each other
+ */
 .snap-to {
   padding-left: 0;
   padding-right: 0;
