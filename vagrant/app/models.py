@@ -29,7 +29,7 @@ class Category(DeclarativeBase):
     def serialize(self):
         return {
             'id': self.id,
-            'category': self.name
+            'name': self.name
         }
 
 
