@@ -95,7 +95,7 @@ Vagrant.configure("2") do |config|
         #   PostgreSQL Install       #
         ##############################
         sudo apt-get -qq install postgresql postgresql-client postgresql-contrib
-        sudo -u postgres psql -c "CREATE USER ubuntu WITH SUPERUSER CREATEDB ENCRYPTED PASSWORD 'vagrant'"
+        sudo -u postgres psql -c "CREATE USER ubuntu WITH CREATEDB ENCRYPTED PASSWORD 'vagrant'"
         # sudo vagrant -c 'createdb item_catalog'
         ##############################
         #   PostgreSQL Install       #
