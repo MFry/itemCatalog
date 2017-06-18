@@ -6,8 +6,8 @@ import Navbar from './Navbar';
 expect.addSnapshotSerializer(serializer);
 
 describe('Components', () => {
-    const navbar = shallow(<Navbar />);
     describe('Navbar', () => {
+        const navbar = shallow(<Navbar />);
         it('should render', () => {
             expect(navbar.find('nav').hasClass('navbar')).toBe(true);
         });
