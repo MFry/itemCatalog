@@ -24,10 +24,11 @@
     "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.28.1",
     "enzyme": "^2.8.2",
+    "enzyme-to-json": "^1.5.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
-    "jest": "^20.0.0",
-    "jest-cli": "^20.0.0",
+    "jest": "^20.0.4",
+    "jest-cli": "^20.0.4",
     "node-sass": "^4.5.2",
     "react-test-renderer": "^15.5.4",
     "redux-logger": "^3.0.6",
@@ -41,7 +42,7 @@
   },
   "scripts": {
     "run": "python app/app.py",
-    "test:py": "py.test vagrant/test/ -v -rxs",
+    "test:pgy": "py.test vagrant/test/ -v -rxs",
     "test:js": "jest"
   },
   "jest": {
