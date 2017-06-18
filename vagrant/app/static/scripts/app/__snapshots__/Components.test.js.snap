@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Components Header Should match snapshot 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-4"
+      >
+        <h2>
+          Catalog App
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Components Navbar Should match snapshot 1`] = `
 <nav
   className="navbar navbar-default navbar-fixed-top"
