@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import serializer from 'enzyme-to-json/serializer';
 import Navbar from './Navbar';
 import Header from './Header';
+import Entry from './Entry';
 
 expect.addSnapshotSerializer(serializer);
 
@@ -34,5 +35,14 @@ describe('Components', () => {
         it('Should match snapshot', () => {
             expect(header).toMatchSnapshot();
         });
+    });
+    describe('Content', () => {
+        describe('Entry', () => {
+            it('Should render', () => {
+                const entry = shallow(<Entry name={'test'} key={'1'} />);
+                expect(entry).toMatchSnapshot();
+            });
+        });
+        describe('Categories', () => {});
     });
 });
