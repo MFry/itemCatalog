@@ -5,7 +5,6 @@ import Entry from './Entry';
 let Categories = props => {
     return (
         <div className="col-md-4">
-            <h3>Categories</h3>
             {props.categories.map(category => {
                 return Entry({ ...category, key: 'd' + category.id });
             })}

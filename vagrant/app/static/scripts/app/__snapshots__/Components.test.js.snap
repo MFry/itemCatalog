@@ -21,7 +21,9 @@ exports[`Components Header Should match snapshot 1`] = `
       <div
         className="col-md-4"
       >
-        <h2>
+        <h2
+          className="title"
+        >
           Catalog App
         </h2>
       </div>
