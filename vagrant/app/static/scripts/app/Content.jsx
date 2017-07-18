@@ -7,7 +7,7 @@ import Items from './Items';
 const Content = () => {
     return (
         <div className="container">
-            <div className="row">
+            <div className="row data-labels">
                 <div className="col-md-4">
                     <h3>Categories</h3>
                 </div>
