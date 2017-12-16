@@ -7,7 +7,7 @@ const Navbar = () => (
     <div className="nav-wrapper container">
       <a href="/" className="brand-logo"><img src={logo} className="App-logo" alt="logo" /></a>
       <ul id="nav-mobile" className="right">
-        <li><a href="collapsible.html">Login</a></li>
+        <li><button className="waves-effect waves-light btn">Login</button></li>
       </ul>
     </div>
   </nav>
