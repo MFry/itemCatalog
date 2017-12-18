@@ -14,12 +14,6 @@ def set_config(config):
             PIPELINE=ItemCatalogPipeline()
         ))
 
-
-@app.route('/')
-def hello():
-    return render_template('index.html')
-
-
 @app.route('/j/items', methods=['GET'])
 def get_all_items():
     with app.config['PIPELINE'].get_session() as session:
@@ -34,6 +28,11 @@ def get_all_categories():
         query = session.query(models.Category).all()
         json_object = app_helper.create_json(query)
         return json_object
+
+
+@app.route('/')
+def hello():
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
