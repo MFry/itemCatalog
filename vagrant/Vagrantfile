@@ -74,24 +74,27 @@ Vagrant.configure("2") do |config|
         ##############################
         #     Apt-get Keys           #
         ##############################
-        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-        sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+        #curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        #sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
         sudo add-apt-repository -y ppa:jonathonf/python-3.6
         # updates the list of available packages and their versions, but it does not install or upgrade any packages.
         sudo apt-get -qq update
         # actually installs newer versions of the packages you have. After updating the lists, the package manager knows about available updates for the software you have installed.
         sudo apt-get -qq upgrade
         # Install all dependencies for build-essential (contains numerous packages for building packages)
-        sudo apt-get -qq build-dep build-essential libpq-dev
+        sudo apt-get install -qq build-essential libbz2-dev libssl-dev libreadline-dev \
+        libsqlite3-dev tk-dev libpq-dev
         # Install git
         sudo apt-get -qq install git
         ##############################
         # Yarn and Nvm Installation  #
         ##############################
-        sudo apt-get -qq install yarn
-        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+        #sudo apt-get -qq install yarn
+        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
         sudo nvm install node
-        sudo apt-get install -qq nodejs
+        nvm use node
+        npm i -g yarn
+        #sudo apt-get install -qq nodejs
         ##############################
         #   PostgreSQL Install       #
         ##############################
@@ -99,13 +102,22 @@ Vagrant.configure("2") do |config|
         sudo -u postgres psql -c "CREATE USER ubuntu WITH CREATEDB ENCRYPTED PASSWORD 'vagrant'"
         # sudo vagrant -c 'createdb item_catalog'
         ##############################
-        #   PostgreSQL Install       #
+        #   Python Install       #
         ##############################
-        sudo apt-get -qq install python3.6 python3-pip python3-dev virtualenv
 
-        pip3 install --upgrade pip
-        pip3 install --upgrade virtualenv
-        virtualenv -p python3.6 /vagrant/py36env
+        # optional scientific package headers (for Numpy, Matplotlib, SciPy, etc.)
+        sudo apt-get install -qq libpng-dev libfreetype6-dev 
+        # Info: https://github.com/yyuu/pyenv-installer#installation--update--uninstallation
+        curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+
+        export PATH="~/.pyenv/bin:$PATH"
+        eval "$(pyenv init -)"
+        eval "$(pyenv virtualenv-init -)"
+        #sudo apt-get -qq install python3.6 python3-pip python3-dev virtualenv
+
+        #pip3 install --upgrade pip
+        #pip3 install --upgrade virtualenv
+        #virtualenv -p python3.6 /vagrant/py36env
 
         vagrantTip="The shared directory is located at /vagrant\nTo access your shared files: cd /vagrant"
         echo -e $vagrantTip > /etc/motd
