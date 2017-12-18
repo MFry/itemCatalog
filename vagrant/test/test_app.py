@@ -18,7 +18,7 @@ def test_app():
 
 
 def response_helper(response):
-    if sys.version_info > (3, 6):
+    if sys.version_info >= (3, 6):
         json_data = json.loads(response.data)
     else:
         json_data = json.loads(response.data.decode(encoding='utf-8'))
