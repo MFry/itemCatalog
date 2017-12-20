@@ -22,6 +22,13 @@ def get_all_items():
         return json_object
 
 
+@app.route('/item/<int:item_id>', methods=['GET'])
+def get_item(item_id):
+    with app.config['PIPELINE'].get_session() as session:
+        query = session.query(models.Items).filter_by(id=item_id).all()
+        json_object = app_helper.create_json(query)
+        return json_object
+
 @app.route('/j/categories', methods=['GET'])
 def get_all_categories():
     with app.config['PIPELINE'].get_session() as session:
