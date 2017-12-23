@@ -1,10 +1,11 @@
 from flask import Flask, render_template
+from flask_cors import CORS
 import app_helper
 import models
 from model_pipeline import ItemCatalogPipeline
 
 app = Flask(__name__)
-
+CORS(app)
 
 def set_config(config):
     app.config.update(config)

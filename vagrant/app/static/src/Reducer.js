@@ -1,4 +1,4 @@
-export const ITEMS = 'items';
+export const ITEMS = 'GET_ITEM';
 export const CATEGORIES = 'categories';
 
 
